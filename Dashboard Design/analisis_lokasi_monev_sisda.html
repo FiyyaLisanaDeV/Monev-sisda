@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analisis Berdasarkan Lokasi - Monev Sisda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#ffbb1d",
+                      "surface-container-high": "#e8e7f1",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#c8c6c7",
+                      "on-primary-fixed": "#271900",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "tertiary-fixed": "#e2e2e3",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#fbb717",
+                      "on-secondary-container": "#636263",
+                      "secondary-fixed": "#e5e2e3",
+                      "inverse-surface": "#2f3038",
+                      "on-background": "#1a1b22",
+                      "surface-dim": "#dad9e3",
+                      "on-secondary-fixed-variant": "#474647",
+                      "on-surface-variant": "#504533",
+                      "surface-container": "#eeedf7",
+                      "on-primary-container": "#6a4a00",
+                      "secondary": "#5f5e5f",
+                      "inverse-primary": "#ffbb1d",
+                      "on-tertiary-fixed": "#1a1c1d",
+                      "primary": "#7c5800",
+                      "on-primary-fixed-variant": "#5e4200",
+                      "outline-variant": "#d5c4ac",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#5d5e60",
+                      "surface-variant": "#e3e1ec",
+                      "secondary-container": "#e2dfe0",
+                      "primary-fixed": "#ffdea7",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#fbf8ff",
+                      "surface-tint": "#7c5800",
+                      "outline": "#837560",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e3e1ec",
+                      "surface": "#fbf8ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f4f2fd",
+                      "on-tertiary-fixed-variant": "#454748",
+                      "background": "#fbf8ff",
+                      "tertiary-container": "#c2c3c4",
+                      "on-surface": "#1a1b22",
+                      "on-tertiary-container": "#4f5051",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f1effa"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "sm": "8px",
+                      "xxl": "64px",
+                      "margin-desktop": "48px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "md": "16px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "edge-margin-desktop": "32px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-xl": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "label-md": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "label-caps": ["JetBrains Mono"],
+                      "data-num": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "data-num": ["20px", {"lineHeight": "24px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e2e3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c8c6c7;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container flex font-body-md">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-[280px] bg-surface-container border-r border-outline-variant/30 shadow-sm z-50">
+<div class="flex flex-col h-full p-4 gap-stack-md">
+<!-- Brand -->
+<div class="flex items-center gap-3 px-4 py-6 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container fill">water_drop</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Monev Sisda</h1>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Pemantauan Infrastruktur</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-2 flex-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-secondary hover:bg-surface-variant/50 transition-colors cursor-pointer active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dasbor Eksekutif</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-secondary hover:bg-surface-variant/50 transition-colors cursor-pointer active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Analisis Paket</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg cursor-pointer active:scale-95 duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined fill" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md font-semibold">Analisis Lokasi</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-secondary hover:bg-surface-variant/50 transition-colors cursor-pointer active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Manajemen Data</span>
+</a>
+</li>
+</ul>
+<!-- User Profile (Bottom) -->
+<div class="mt-auto border-t border-outline-variant/30 pt-4 px-2">
+<div class="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<img alt="User Profile" class="w-10 h-10 rounded-full border border-outline-variant/20" data-alt="A small, professional avatar portrait of an administrator in a sleek corporate environment. High contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnZ-n3GOpgoJTJjOtu8UtO1Ka5GI3MoX7j0nhxMRb5tcEc5ejVVBQEIcEePVlCXZvgBhW4rxHQmc70FrJ8-0mQMfE3MExAgzX0K6bCD1zITL9HnBFIErS0ubgYJa3YIvLHmJXa8wGzpFYs3_TtsGJfUPp9-OP4wUL8UiQhSXYVSurR_tvF9DrpQ5SbeOvLTAFwNTMVLIe1jlqeGcMrETdU-m9hfUaPwsf_AsbXAkhLuRUwx4GZGbZqNn6_iAJha3zm3cb3UFH5iGA"/>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Admin</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase truncate">Operasi Sistem</p>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-[280px] h-screen relative">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-[280px] h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm z-40">
+<div class="flex justify-between items-center px-edge-margin-desktop w-full h-full">
+<!-- Search (Left) -->
+<div class="relative w-64 focus-within:ring-2 focus-within:ring-primary-container rounded-full transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-full py-2 pl-10 pr-4 text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container transition-colors" placeholder="Cari data lokasi..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all group">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto pt-[88px] px-edge-margin-desktop pb-edge-margin-desktop bg-background">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Analisis Lokasi</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Sebaran pagu dan realisasi infrastruktur per Kabupaten/Kota.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-body-md text-body-md font-semibold hover:bg-primary-fixed-dim transition-colors shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Ekspor Laporan
+                    </button>
+</div>
+<!-- Summary Cards (4 columns) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity">
+<span class="material-symbols-outlined text-[120px]">map</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4 tracking-wider">Total Wilayah Aktif</p>
+<p class="font-data-num text-display-lg text-primary mb-1">17</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary fill">check_circle</span>
+                            Semua Kab/Kota termonitor
+                        </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4 tracking-wider">Total Pagu Alokasi</p>
+<p class="font-data-num text-display-lg text-on-surface mb-1">Rp 1.2T</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="h-2 flex-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[68%] rounded-full"></div>
+</div>
+<span class="font-data-num text-label-caps text-primary font-bold">68% Realisasi</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-4 tracking-wider">Total Paket Pekerjaan</p>
+<p class="font-data-num text-display-lg text-on-surface mb-1">142</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">trending_up</span>
+                            +12 dari bulan lalu
+                        </p>
+</div>
+<!-- Card 4 (Critical) -->
+<div class="bg-error-container/20 border border-error/20 p-6 rounded-xl relative overflow-hidden shadow-sm">
+<div class="absolute top-0 right-0 w-1.5 h-full bg-error"></div>
+<p class="font-label-caps text-label-caps text-error uppercase mb-4 tracking-wider font-bold">Paket Status Kritis</p>
+<p class="font-data-num text-display-lg text-error mb-1">8</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Membutuhkan intervensi segera</p>
+</div>
+</div>
+<!-- Detailed Data Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden flex flex-col shadow-sm">
+<!-- Table Header Controls -->
+<div class="p-4 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-headline-md text-headline-md text-on-surface text-lg">Rincian Per Wilayah</h3>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">filter_list</span>
+<select class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg py-1.5 pl-9 pr-8 text-sm text-on-surface focus:ring-primary-container focus:border-primary-container appearance-none cursor-pointer">
+<option>Semua Status</option>
+<option>Ada Kritis</option>
+<option>Aman</option>
+</select>
+</div>
+</div>
+</div>
+<!-- The Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 bg-surface-container-low/20">
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider w-[25%] font-bold">Kabupaten / Kota</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider w-[20%] font-bold">Pagu (Rp)</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider w-[25%] font-bold">Realisasi Fisik / Keuangan</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-center w-[15%] font-bold">Jumlah Paket</th>
+<th class="p-4 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-center w-[15%] font-bold">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-semibold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+                                        KOTA KENDARI
+                                    </td>
+<td class="p-4 font-data-num text-on-surface-variant group-hover:text-on-surface transition-colors">245.5 M</td>
+<td class="p-4">
+<div class="flex flex-col gap-1.5 w-full max-w-[200px]">
+<div class="flex justify-between text-xs font-data-num">
+<span class="text-primary font-bold">82.4%</span>
+<span class="text-secondary">79.1%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container w-[82.4%]"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center font-data-num">24</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+                                            Aman
+                                        </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant/10 bg-surface-container-low/20 hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-semibold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+                                        KAB. KONAWE
+                                    </td>
+<td class="p-4 font-data-num text-on-surface-variant group-hover:text-on-surface transition-colors">180.2 M</td>
+<td class="p-4">
+<div class="flex flex-col gap-1.5 w-full max-w-[200px]">
+<div class="flex justify-between text-xs font-data-num">
+<span class="text-primary font-bold">45.0%</span>
+<span class="text-secondary">42.5%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container w-[45%]"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center font-data-num">18</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container border border-error/20">
+<span class="material-symbols-outlined text-[14px] fill">warning</span>
+                                            3 Kritis
+                                        </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-semibold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+                                        KAB. MUNA
+                                    </td>
+<td class="p-4 font-data-num text-on-surface-variant group-hover:text-on-surface transition-colors">95.8 M</td>
+<td class="p-4">
+<div class="flex flex-col gap-1.5 w-full max-w-[200px]">
+<div class="flex justify-between text-xs font-data-num">
+<span class="text-primary font-bold">60.2%</span>
+<span class="text-secondary">58.0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container w-[60.2%]"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center font-data-num">12</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container/20 text-on-primary-container border border-primary-container/40">
+<span class="material-symbols-outlined text-[14px] fill">info</span>
+                                            1 Perhatian
+                                        </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant/10 bg-surface-container-low/20 hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-semibold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+                                        KOTA BAUBAU
+                                    </td>
+<td class="p-4 font-data-num text-on-surface-variant group-hover:text-on-surface transition-colors">150.0 M</td>
+<td class="p-4">
+<div class="flex flex-col gap-1.5 w-full max-w-[200px]">
+<div class="flex justify-between text-xs font-data-num">
+<span class="text-primary font-bold">90.5%</span>
+<span class="text-secondary">88.0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container w-[90.5%]"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center font-data-num">15</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+                                            Aman
+                                        </span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-4 font-semibold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+                                        KAB. KOLAKA
+                                    </td>
+<td class="p-4 font-data-num text-on-surface-variant group-hover:text-on-surface transition-colors">210.4 M</td>
+<td class="p-4">
+<div class="flex flex-col gap-1.5 w-full max-w-[200px]">
+<div class="flex justify-between text-xs font-data-num">
+<span class="text-primary font-bold">30.1%</span>
+<span class="text-secondary">25.0%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container w-[30.1%]"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center font-data-num">20</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container border border-error/20">
+<span class="material-symbols-outlined text-[14px] fill">warning</span>
+                                            4 Kritis
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant/30 flex justify-between items-center bg-surface-container-low/50">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Menampilkan 1-5 dari 17 wilayah</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monev Sisda - Analisis Jenis Paket</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffbb1d",
+                        "surface-container-high": "#e8e7f1",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-primary-fixed": "#271900",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "tertiary-fixed": "#e2e2e3",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#fbb717",
+                        "on-secondary-container": "#636263",
+                        "secondary-fixed": "#e5e2e3",
+                        "inverse-surface": "#2f3038",
+                        "on-background": "#1a1b22",
+                        "surface-dim": "#dad9e3",
+                        "on-secondary-fixed-variant": "#474647",
+                        "on-surface-variant": "#504533",
+                        "surface-container": "#eeedf7",
+                        "on-primary-container": "#6a4a00",
+                        "secondary": "#5f5e5f",
+                        "inverse-primary": "#ffbb1d",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "primary": "#7c5800",
+                        "on-primary-fixed-variant": "#5e4200",
+                        "outline-variant": "#d5c4ac",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#5d5e60",
+                        "surface-variant": "#e3e1ec",
+                        "secondary-container": "#e2dfe0",
+                        "primary-fixed": "#ffdea7",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fbf8ff",
+                        "surface-tint": "#7c5800",
+                        "outline": "#837560",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e3e1ec",
+                        "surface": "#fbf8ff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f2fd",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "background": "#fbf8ff",
+                        "tertiary-container": "#c2c3c4",
+                        "on-surface": "#1a1b22",
+                        "on-tertiary-container": "#4f5051",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f1effa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "xxl": "64px",
+                        "margin-desktop": "48px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "container-max": "1440px",
+                        "edge-margin-desktop": "32px",
+                        "edge-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "data-num": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "data-num": ["20px", {"lineHeight": "24px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
+        
+        body {
+            background-color: #FFFFFF;
+            color: theme('colors.on-surface');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex bg-white">
+<!-- SideNavBar -->
+<aside class="hidden md:flex bg-surface-container border-r border-outline-variant fixed left-0 top-0 h-screen w-[280px] shadow-sm z-40">
+<div class="flex flex-col h-full p-4 gap-stack-md w-full">
+<!-- Brand -->
+<div class="px-4 py-6 mb-4 border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Monev Sisda</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pemantauan Infrastruktur</p>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2">
+<!-- Index 0: Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dasbor Eksekutif</span>
+</a>
+<!-- Index 1: Active (Package Analysis) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-body-md text-body-md font-semibold">Analisis Jenis Paket</span>
+</a>
+<!-- Index 2: Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-body-md text-body-md">Analisis Lokasi</span>
+</a>
+<!-- Index 3: Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Manajemen Data</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-[280px] flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="hidden md:flex bg-white/80 backdrop-blur-md border-b border-outline-variant shadow-sm fixed top-0 right-0 left-[280px] h-16 z-30">
+<div class="flex justify-between items-center px-edge-margin-desktop w-full h-full">
+<!-- Title Area / Breadcrumb equivalent -->
+<div class="flex items-center">
+<h2 class="font-headline-md text-[20px] font-bold text-on-surface">Analisis Jenis Paket</h2>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<!-- Avatar Placeholder -->
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-sm ml-2">
+                    A
+                </div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 pt-[88px] px-gutter pb-gutter max-w-container-max w-full mx-auto">
+<!-- Page Header -->
+<div class="mb-stack-lg flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Analisis Jenis Paket</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rincian alokasi anggaran dan realisasi berdasarkan kategori paket infrastruktur.</p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1: Pekerjaan Konstruksi -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">construction</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Pekerjaan Konstruksi</h3>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Jumlah Paket</p>
+<p class="font-data-num text-data-num text-on-surface">542</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Serapan</p>
+<p class="font-data-num text-data-num text-primary">84.2%</p>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Pagu</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 15.2T</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Realisasi</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 12.8T</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary-container rounded-full" style="width: 84.2%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Jasa Konsultansi -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Jasa Konsultansi</h3>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Jumlah Paket</p>
+<p class="font-data-num text-data-num text-on-surface">128</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Serapan</p>
+<p class="font-data-num text-data-num text-primary">71.4%</p>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Pagu</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 2.1T</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Realisasi</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 1.5T</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary-container rounded-full" style="width: 71.4%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Barang -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Barang</h3>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Jumlah Paket</p>
+<p class="font-data-num text-data-num text-on-surface">85</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Serapan</p>
+<p class="font-data-num text-data-num text-primary">82.3%</p>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Pagu</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 850B</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Realisasi</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 700B</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary-container rounded-full" style="width: 82.3%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 4: Jasa Lainnya -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Jasa Lainnya</h3>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Jumlah Paket</p>
+<p class="font-data-num text-data-num text-on-surface">46</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Serapan</p>
+<p class="font-data-num text-data-num text-primary">83.3%</p>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Pagu</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 300B</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Realisasi</span>
+<span class="font-data-num text-[16px] text-on-surface">Rp 250B</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mt-2">
+<div class="h-full bg-primary-container rounded-full" style="width: 83.3%;"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
