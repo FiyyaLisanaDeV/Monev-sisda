@@ -10,6 +10,8 @@ class RiskStatusChart extends ChartWidget
     protected ?string $heading = 'Distribusi Risiko Paket';
     protected ?string $description = 'Status aman, perhatian, review, dan kritis';
     protected static ?int $sort = 2;
+    protected int | string | array $columnSpan = 'full';
+    protected ?string $maxHeight = '300px';
 
     protected function getData(): array
     {
@@ -24,12 +26,12 @@ class RiskStatusChart extends ChartWidget
                     'label' => 'Jumlah Paket',
                     'data' => [$aman, $perhatian, $review, $kritis],
                     'backgroundColor' => [
-                        '#5f5e5f',
-                        '#fbb717',
-                        '#e5e2e3',
-                        '#ba1a1a',
+                        '#10b981', // Aman: Green
+                        '#f59e0b', // Perhatian: Orange
+                        '#3b82f6', // Perlu Review: Blue
+                        '#ef4444', // Kritis: Red
                     ],
-                    'borderColor' => '#fbf8ff',
+                    'borderColor' => '#ffffff',
                     'borderWidth' => 2,
                 ],
             ],
@@ -45,10 +47,14 @@ class RiskStatusChart extends ChartWidget
     protected function getOptions(): array
     {
         return [
-            'cutout' => '68%',
+            'cutout' => '65%',
             'plugins' => [
                 'legend' => [
-                    'display' => false,
+                    'display' => true,
+                    'position' => 'bottom',
+                ],
+                'tooltip' => [
+                    'enabled' => true,
                 ],
             ],
             'maintainAspectRatio' => false,
