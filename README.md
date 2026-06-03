@@ -10,17 +10,7 @@ Dashboard monitoring progres fisik, keuangan, dan risiko paket berbasis Laravel 
 | --- | --- |
 | ![Login SISDA Monev](laravel-progres-dashboard/docs/screenshots/login.png) | ![Admin Dashboard SISDA Monev](laravel-progres-dashboard/docs/screenshots/admin-dashboard.png) |
 
-## Navigasi Cepat
 
-| Saya ingin... | Baca bagian |
-| --- | --- |
-| Membuka aplikasi utama | [Struktur Repo](#struktur-repo) |
-| Melihat modul yang tersedia | [Mulai Dari Sini](#mulai-dari-sini) |
-| Mengecek update terakhir | [Fitur Terbaru](#fitur-terbaru) |
-| Melihat riwayat perbaikan | [Bug Fix Log](#bug-fix-log) |
-| Memahami role akses | [Peran Pengguna](#peran-pengguna) |
-| Menjalankan lokal | [Instalasi Lokal](#instalasi-lokal) |
-| Menjalankan validasi | [Testing](#testing) |
 
 ## Struktur Repo
 
@@ -31,7 +21,7 @@ Dashboard monitoring progres fisik, keuangan, dan risiko paket berbasis Laravel 
 | `Dashboard Design/` | Referensi visual awal dashboard. |
 | `dashboardproject.md` | Catatan progres kerja. |
 | `workflow_agent_laravel_progres_ta2025.md` | Workflow teknis pengembangan. |
-| `dummy.xlsx` | Contoh data import lokal. |
+| `data/dummy.xlsx` | Contoh data import lokal. |
 
 ## Status Project
 
@@ -88,6 +78,7 @@ Dashboard monitoring progres fisik, keuangan, dan risiko paket berbasis Laravel 
 - Modul Manajemen User untuk role Admin dan Operator.
 - Akses panel dibatasi role: Admin dan Operator dapat masuk panel, Manajemen User hanya untuk Admin.
 - README dibersihkan dari kredensial dan instruksi login sensitif.
+- Tampilan Chart Distribusi Risiko (Ringkasan Eksekutif) diperbesar secara proporsional dengan warna indikator yang lebih informatif.
 
 ## Bug Fix Log
 
@@ -104,6 +95,7 @@ Dashboard monitoring progres fisik, keuangan, dan risiko paket berbasis Laravel 
 | Dashboard | Tahun anggaran mengikuti tahun sistem, bukan data import terakhir. | Tahun anggaran diambil dari import batch terbaru yang selesai diproses. |
 | Role Operator | Operator valid tetapi belum bisa masuk panel admin. | Model User ditambahkan aturan akses panel untuk role Admin dan Operator. |
 | Manajemen User | Operator berpotensi melihat menu pengelolaan user jika akses tidak dibatasi. | Manajemen User dilindungi policy, hanya Admin yang bisa akses. |
+| Dashboard | Chart distribusi risiko ukurannya tidak proporsional dan tidak informatif. | Chart dibuat full-width, warna disesuaikan dengan status risiko (Aman, Perhatian, dsb.), dan ditambahkan legenda. |
 
 ## Peran Pengguna
 
