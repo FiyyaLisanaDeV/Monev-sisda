@@ -161,7 +161,6 @@ class PaketBerisiko extends Page implements HasTable
                 ViewAction::make()
                     ->label('Lihat Detail')
                     ->modalHeading('Detail Informasi Paket')
-                    ->slideOver()
                     ->stickyModalHeader()
                     ->modalWidth('5xl')
                     ->modalContent(fn ($record) => view('filament.partials.paket-detail-modal', [

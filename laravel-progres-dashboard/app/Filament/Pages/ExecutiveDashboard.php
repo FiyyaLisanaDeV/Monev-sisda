@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\ImportBatch;
 use App\Models\PaketProgres;
 use Filament\Pages\Dashboard as BaseDashboard;
 use App\Filament\Widgets\StatsOverview;
@@ -48,6 +49,11 @@ class ExecutiveDashboard extends BaseDashboard
 
     public function getHeader(): ?View
     {
+        $latestBatch = ImportBatch::query()
+            ->where('status', 'completed')
+            ->latest('id')
+            ->first();
+
         $totalPagu = (float) PaketProgres::query()->sum('pagu');
         $totalRealisasi = (float) PaketProgres::query()->sum('realisasi');
         $serapan = $totalPagu > 0 ? round(($totalRealisasi / $totalPagu) * 100, 2) : 0.0;
@@ -62,7 +68,7 @@ class ExecutiveDashboard extends BaseDashboard
             'totalPaket' => $totalPaket,
             'paketKritis' => $paketKritis,
             'paketPerhatian' => $paketPerhatian,
-            'tahunAnggaran' => now()->year,
+            'tahunAnggaran' => $latestBatch?->tahun_anggaran ?? now()->year,
         ]);
     }
 }

@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('SISDA Monev')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login(\App\Filament\Pages\Auth\Login::class)
             ->darkMode(false)
@@ -40,7 +41,7 @@ class AdminPanelProvider extends PanelProvider
             ->font('Inter', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap')
             ->renderHook(
                 'panels::head.end',
-                fn (): string => '<link rel="stylesheet" href="/css/premium.css">'
+                fn (): string => '<link rel="stylesheet" href="/css/premium.css"><script src="/js/sidebar-toggle.js" defer></script>'
             )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

@@ -53,6 +53,7 @@ class PaketProgresResource extends Resource
                 ViewAction::make()
                     ->label('Lihat Detail')
                     ->modalHeading('Detail Informasi Paket')
+                    ->stickyModalHeader()
                     ->modalWidth('5xl')
                     ->modalContent(fn ($record) => view('filament.partials.paket-detail-modal', [
                         'record' => $record,

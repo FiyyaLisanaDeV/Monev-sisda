@@ -47,87 +47,77 @@
     ];
 @endphp
 
-<div class="space-y-6 pt-6 pb-4">
-    <div class="dashboard-card">
-        <div class="flex flex-wrap items-start justify-between gap-4">
-            <div>
+<div class="paket-detail-modal">
+    <section class="dashboard-card paket-detail-modal__hero">
+        <div class="paket-detail-modal__hero-grid">
+            <div class="paket-detail-modal__hero-copy">
                 <span class="dashboard-card__eyebrow">Detail Paket</span>
-                <h3 class="dashboard-card__title text-2xl">{{ $record->paket ?? 'Tanpa Nama Paket' }}</h3>
-                <p class="dashboard-card__meta mb-0">Informasi ringkas yang tetap terbaca di layar kecil.</p>
+                <h3 class="dashboard-card__title">{{ $record->paket ?? 'Tanpa Nama Paket' }}</h3>
             </div>
 
-            <div class="px-3 py-1.5 rounded-full text-xs font-bold tracking-[0.08em] uppercase text-white"
-                 style="background: {{ $statusColor }}">
+            <div class="paket-detail-modal__status" style="background: {{ $statusColor }}">
                 {{ $status }}
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="dashboard-card">
-        <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap items-center justify-between gap-3">
+    <section class="dashboard-card">
+        <div class="paket-detail-modal__risk">
+            <div class="paket-detail-modal__risk-header">
                 <div>
                     <span class="dashboard-card__eyebrow">Ringkasan Risiko</span>
-                    <h4 class="dashboard-card__title text-xl mb-1">{{ $riskSummary }}</h4>
+                    <h4 class="dashboard-card__title">{{ $riskSummary }}</h4>
                     <p class="dashboard-card__meta mb-0">{{ $riskDescription }}</p>
                 </div>
 
-                <div class="px-3 py-2 rounded-2xl border border-[rgba(213,196,172,0.5)] bg-[rgba(251,183,23,0.08)] text-[var(--dash-primary)]">
-                    <div class="text-[0.72rem] uppercase tracking-[0.08em] font-bold">Gap / Deviasi</div>
-                    <div class="text-2xl font-extrabold leading-none mt-1">{{ number_format($gap, 2) }}%</div>
+                <div class="paket-detail-modal__gap">
+                    <span>Gap / Deviasi</span>
+                    <strong>{{ number_format($gap, 2) }}%</strong>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="rounded-2xl border border-[rgba(227,225,236,0.95)] bg-white p-4">
-                    <div class="flex items-center justify-between gap-3 mb-2">
-                        <span class="text-xs font-bold uppercase tracking-[0.08em] text-[var(--dash-text-soft)]">Keuangan</span>
-                        <strong class="text-sm text-[var(--dash-text)]">{{ number_format($keuangan, 2) }}%</strong>
+            <div class="paket-detail-modal__progress-grid">
+                <div class="paket-detail-modal__progress-card">
+                    <div class="paket-detail-modal__progress-head">
+                        <span>Keuangan</span>
+                        <strong>{{ number_format($keuangan, 2) }}%</strong>
                     </div>
-                    <div class="h-3 w-full overflow-hidden rounded-full bg-[rgba(227,225,236,0.9)]">
-                        <div class="h-full rounded-full bg-[linear-gradient(90deg,#fbb717,#ffd36b)]" style="width: {{ $keuanganProgress }}%"></div>
+                    <div class="paket-detail-modal__progress-track">
+                        <div class="paket-detail-modal__progress-bar paket-detail-modal__progress-bar--finance" style="width: {{ $keuanganProgress }}%"></div>
                     </div>
-                    <p class="mt-2 text-sm text-[var(--dash-text-soft)]">
-                        Realisasi anggaran yang sudah tercatat.
-                    </p>
+                    <p>Realisasi anggaran yang sudah tercatat.</p>
                 </div>
 
-                <div class="rounded-2xl border border-[rgba(227,225,236,0.95)] bg-white p-4">
-                    <div class="flex items-center justify-between gap-3 mb-2">
-                        <span class="text-xs font-bold uppercase tracking-[0.08em] text-[var(--dash-text-soft)]">Fisik</span>
-                        <strong class="text-sm text-[var(--dash-text)]">{{ number_format($fisik, 2) }}%</strong>
+                <div class="paket-detail-modal__progress-card">
+                    <div class="paket-detail-modal__progress-head">
+                        <span>Fisik</span>
+                        <strong>{{ number_format($fisik, 2) }}%</strong>
                     </div>
-                    <div class="h-3 w-full overflow-hidden rounded-full bg-[rgba(227,225,236,0.9)]">
-                        <div class="h-full rounded-full {{ $fisik < 70 ? 'bg-[linear-gradient(90deg,#ba1a1a,#ef4444)]' : 'bg-[linear-gradient(90deg,#7c5800,#fbb717)]' }}" style="width: {{ $fisikProgress }}%"></div>
+                    <div class="paket-detail-modal__progress-track">
+                        <div class="paket-detail-modal__progress-bar {{ $fisik < 70 ? 'paket-detail-modal__progress-bar--danger' : 'paket-detail-modal__progress-bar--field' }}" style="width: {{ $fisikProgress }}%"></div>
                     </div>
-                    <p class="mt-2 text-sm text-[var(--dash-text-soft)]">
-                        Progres pekerjaan di lapangan.
-                    </p>
+                    <p>Progres pekerjaan di lapangan.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="overflow-x-auto rounded-2xl border border-[rgba(227,225,236,0.95)] bg-white shadow-[0_18px_40px_-24px_rgb(26_27_34/0.35)]">
-        <table class="min-w-full divide-y divide-[rgba(227,225,236,0.8)]">
-            <thead class="bg-[linear-gradient(180deg,rgba(244,242,253,0.88),rgba(238,237,247,0.88))]">
+    <section class="paket-detail-modal__table-wrap">
+        <table class="paket-detail-modal__table">
+            <thead>
                 <tr>
-                    <th class="px-4 py-3 text-left text-[0.72rem] font-bold uppercase tracking-[0.08em] text-[var(--dash-text-soft)]">Field</th>
-                    <th class="px-4 py-3 text-left text-[0.72rem] font-bold uppercase tracking-[0.08em] text-[var(--dash-text-soft)]">Nilai</th>
+                    <th>Field</th>
+                    <th>Nilai</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-[rgba(227,225,236,0.75)]">
+            <tbody>
                 @foreach ($rows as $label => $value)
-                    <tr class="align-top">
-                        <td class="px-4 py-3 whitespace-nowrap text-sm font-semibold text-[var(--dash-text)]">
-                            {{ $label }}
-                        </td>
-                        <td class="px-4 py-3 text-sm text-[var(--dash-text-soft)] break-words">
-                            {{ $value }}
-                        </td>
+                    <tr>
+                        <td>{{ $label }}</td>
+                        <td>{{ $value }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </section>
 </div>
